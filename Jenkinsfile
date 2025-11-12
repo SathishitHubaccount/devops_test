@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/SathishitHubaccount/devops_test']])
+                echo "start"
             }
         }
         stage('Clone repo') {
