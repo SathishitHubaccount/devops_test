@@ -4,22 +4,8 @@ import json
 def lambda_handler(event, context):
     print("hiiiiiiiiiiiiiiiiiiiiiiiiiiiii")
     dynamobd=boto3.client("dynamodb")
-    if "First_Name" not  in event:
-        Emp_Id=event.get("Emp_Id")
-        print(Emp_Id,event)
-        response = dynamobd.get_item(
-        Key={
-            'Emp_Id': {
-                'S': Emp_Id,
-            },
-    },
-    TableName='Emp_Master',
-)   
-        return {
-        'statusCode': 200,
-        'body': json.dumps(response)
-        }
-    else:
+    
+    if "First_Name" in event  or "Last_Name" in event or "Date_Of_Joining" in event:
         Emp_Id=event.get("Emp_Id","None")
         First_Name=event.get("First_Name","None")
         Last_Name=event.get("Last_Name","None")
@@ -42,7 +28,27 @@ def lambda_handler(event, context):
         ReturnConsumedCapacity='TOTAL',
         TableName='Emp_Master',)
 
-    return {
+        return {
+            'statusCode': 200,
+            'body': json.dumps("Data sucessfully added")
+        }
+    elif "Emp_Id" in event:
+        Emp_Id=event.get("Emp_Id")
+        print(Emp_Id,event)
+        response = dynamobd.get_item(
+        Key={
+            'Emp_Id': {
+                'S': Emp_Id,
+            },
+    },
+    TableName='Emp_Master',
+)   
+        return {
         'statusCode': 200,
-        'body': json.dumps("Data sucessfully added")
-    }
+        'body': json.dumps(response)
+        }
+    else:
+        return {
+        'statusCode': 400,
+        'body': json.dumps("Please provide valid input")
+        }
