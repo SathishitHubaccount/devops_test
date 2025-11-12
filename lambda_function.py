@@ -20,10 +20,10 @@ def lambda_handler(event, context):
         'body': json.dumps(response)
         }
     else:
-        Emp_Id=event.get("Emp_Id",None)
-        First_Name=event.get("First_Name",None)
-        Last_Name=event.get("Last_Name",None)
-        Date_Of_Joining=event.get("Date_Of_Joining",None)
+        Emp_Id=event.get("Emp_Id","None")
+        First_Name=event.get("First_Name","None")
+        Last_Name=event.get("Last_Name","None")
+        Date_Of_Joining=event.get("Date_Of_Joining","None")
         data={
         'Emp_Id': {
             'S': Emp_Id,
