@@ -24,7 +24,7 @@ pipeline {
         }
         stage("uploading_lambda_code"){
             steps{
-                sh "aws s3api get-object --bucket sathis-devops-test --key folder.zip --output folder.zip"
+                sh "aws lambda update-function-code --function-name devops --s3-bucket sathis-devops-test --s3-key folder.zip"
             }
         }
 }

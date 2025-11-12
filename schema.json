@@ -1,0 +1,8 @@
+[
+  { "name": "city", "type": "STRING", "mode": "NULLABLE" },
+  { "name": "temp_c", "type": "FLOAT", "mode": "NULLABLE" },
+  { "name": "humidity", "type": "INTEGER", "mode": "NULLABLE" },
+  { "name": "wind_kph", "type": "FLOAT", "mode": "NULLABLE" },
+  { "name": "condition", "type": "STRING", "mode": "NULLABLE" },
+  { "name": "last_updated", "type": "TIMESTAMP", "mode": "NULLABLE" }
+]
