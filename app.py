@@ -2,7 +2,7 @@ import json
 import boto3
 import json
 def lambda_handler(event, context):
-    print("hi")
+    print("hiiiiiiiiiii")
     dynamobd=boto3.client("dynamodb")
     if "First_Name" not  in event:
         Emp_Id=event.get("Emp_Id")
