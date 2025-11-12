@@ -4,7 +4,7 @@ import json
 def lambda_handler(event, context):
     print("hiiiiiiiiiiiiiiiiiiiiiiiiiiiii")
     dynamobd=boto3.client("dynamodb")
-    
+    event=json.loads(event["body"])
     if "First_Name" in event  or "Last_Name" in event or "Date_Of_Joining" in event:
         Emp_Id=event.get("Emp_Id","None")
         First_Name=event.get("First_Name","None")
