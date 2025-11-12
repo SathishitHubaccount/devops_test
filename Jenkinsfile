@@ -14,7 +14,7 @@ pipeline {
         }
         stage("zip"){
             steps{
-                sh "zip folder.zip app.py"
+                sh "zip folder.zip lambda_function.py"
             }
         }
         stage("upload_to_s3"){
